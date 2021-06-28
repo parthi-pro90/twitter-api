@@ -1,0 +1,159 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+  <link rel = "stylesheet" 
+         href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+      
+ <style>
+  body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #456 !important
+ }
+
+ #star {
+     margin-left: -5px !important;
+     vertical-align: bottom !important;
+     opacity: 0.5
+ }
+
+ .more {
+     opacity: 0.5 !important
+ }
+
+ .btn:hover {
+     color: black !important
+ }
+
+ .vl {
+     margin: 8px !important;
+     width: 2px;
+     border-right: 1px solid #aaaaaa;
+     height: 25px
+ }
+
+ #plus {
+     opacity: 0.8
+ }
+
+ .card {
+     border-radius: 10px !important
+ }
+
+ a:hover {
+     background-color: #ccc !important
+ }
+
+ .btn-outlined:active {
+     color: #FFF;
+     border-color: #fff !important
+ }
+
+ img {
+     cursor: pointer;
+     overflow: visible
+ }
+
+ .btn:focus,
+ .btn:active {
+     outline: none !important;
+     box-shadow: none !important
+ }
+
+ .container {
+     margin-top: 0px !important
+ }
+
+ .card {
+    border-radius: 0px !important;
+}
+
+
+
+ </style>
+ </head>
+ <div class="justify-content-left">
+    <div class="card p-2">
+        <div class="d-flex align-items-center">
+            <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="50"> </div>
+            {% if data['status'] == 1 %}
+                {% if data['records']['user'] %}
+                    <div class="ml-3 w-100">
+                        <h4 class="mb-0 mt-0">{{data['records']['user']['name']}}</h4> <span>@{{data['records']['user']['username']}}</span><span> | {{data['records']['user']['user_id']}}</span>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+ <div class="container">
+        {% if data['status'] == 1 %}
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <form role="form" action="{{ url_for('timeline_blueprint.timeline') }}?id={{data['records']['user']['id']}}" method="post">
+                        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        <input type="text" name="qsearch" value="{{data['records']['forms']['qsearch']}}" placeholder="Search your timeline" role="searchbox" class="InputBox " autocomplete="off">
+                        <input type="submit" class="Button" value="Search">
+                        <select id="mySelect" onchange="this.form.submit()" name="sort_by">
+                            {% if data['records']['forms']['sort_by'] == 'asc' %}
+                                <option value="0" >Sort by date</option>
+                                <option selected value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            {% elif data['records']['forms']['sort_by'] == 'desc' %}
+                                <option value="0" >Sort by date</option>
+                                <option value="asc">Ascending</option>
+                                <option selected value="desc">Descending</option>
+                            {% else  %}
+                                <option selected value="0" >Sort by date</option>
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>   
+                            {% endif %}     
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+        
+            {% if data['records']['data'] %}
+                {% for value in data['records']['data'] %}
+                    <div class="card mt-2 border-5 pt-2 active pb-0 px-3">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <h4 class="card-title "><b>{{value['source']}}</b></h4>
+                                </div>
+                                <div class="col">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <p class="card-text text-muted small ">{{value['text']}}</p>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white px-0 ">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="card-text text-muted small">{{value['created_at']}} | @{{value['author']}}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}    
+            {% else %}
+                <p>No records found</p>    
+            {% endif %}    
+        {% endif %}
+    
+ </div>
+
+ <script type = "text/javascript" 
+            src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>   
+            <script type = "text/javascript" 
+            src = "	https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+<script>
+    function myFunction(elem) {
+        var value = document.getElementById("mySelect").value;
+    }
+</script>  
+</html>            

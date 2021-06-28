@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login page</title>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    </head>
+<div class="login">
+    <div class="login-triangle"></div>
+    <h2 class="login-header">Log in</h2>
+    <form class="login-container" role="form" action="{{ url_for('login_blueprint.login') }}" method="post">
+        {{ form.csrf_token }}
+        <p>
+        {{ form.username(placeholder="Twitter username (ex, NASA)") }}
+        <span class="error">
+            {% if error != None %}
+                {{ error }}
+            {% endif %}
+        </span>
+        </p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+</div>
+<html>

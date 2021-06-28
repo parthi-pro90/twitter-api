@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class = "with-statusbar-overlay">
+
+   <head>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1, 
+         maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
+      <meta name = "apple-mobile-web-app-capable" content = "yes" />
+      <meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
+      <title>List View With Cards</title>
+      <link rel = "stylesheet" 
+         href = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css" />
+      <link rel = "stylesheet" 
+         href = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.colors.min.css" />
+      <link rel = "stylesheet" 
+         href = "custom.css" />
+         <style>
+            .list-block {
+               margin: 35px 0;
+               font-size: 17px;
+               padding-left: 350px;
+               padding-right: 350px;
+            }
+
+         
+
+            .page {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #456;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+            
+         </style>
+   </head>
+   
+
+   <body>
+      <body>
+         <div class = "views bg">
+            <div class = "view view-main">
+               <div class = "pages">
+                  <div data-page = "home" class = "page navbar-fixed">
+                     
+                     <div class = "navbar">
+                        <div class = "navbar-inner">
+                           <div class = "left"> </div>
+                           <div class = "center">List View With Cards</div>
+                           <div class = "right"> </div>
+                        </div>
+                     </div>
+                     
+                     <div class = "page-content" color="">
+                        <div class = "list-block cards-list">
+                           <ul>
+                              <li class = "card">
+                                 <div class = "card-header">Card Header</div>
+                                 <div class = "card-content">
+                                    <div class = "card-content-inner">Content</div>
+                                 </div>
+                                 <div class = "card-footer">Card footer</div>
+                              </li>
+                              
+                              <li class = "card">
+                                 <div class = "card-header">Card Header</div>
+                                 <div class = "card-content">
+                                    <div class = "card-content-inner">Content</div>
+                                 </div>
+                                 <div class = "card-footer">Card footer</div>
+                              </li>
+                              
+                              <li class = "card">
+                                 <div class = "card-header">Card Header</div>
+                                 <div class = "card-content">
+                                    <div class = "card-content-inner">Content</div>
+                                 </div>
+                                 <div class = "card-footer">Card footer</div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         <script type = "text/javascript" 
+            src = "https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+            
+         <script>var myApp = new Framework7();</script>
+      </body>
+   </body>
+</html>
