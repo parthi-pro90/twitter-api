@@ -13,9 +13,11 @@ Once you created the account you will get the `API key` `API Secret Key` and `Be
 1. Clone the repository in your machine and go to your root directory
 2. Install virtual environment
     ```python3 -m venv env```
-3. Run requirement.txt file
+3. Do source activate   
+    ```source venv/bin/activate```
+4. Run requirement.txt file
     ```pip install -r requirements.txt```
-4. create `.env` file and add below variables with necessory values
+5. create `.env` file and add below variables with necessory values
     ```python
        APP_SETTINGS="config.DevelopmentConfig"
        SQLALCHEMY_DATABASE_URI=''
