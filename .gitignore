@@ -7,4 +7,5 @@ app/timeline/__pycache__
 .idea
 .venv/
 .mypy_cache/
+
 .vscode
