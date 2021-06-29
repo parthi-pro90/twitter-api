@@ -9,6 +9,7 @@ from app.model import get_session, User
 def process_user_details(username):
     app_session = get_session()
     try:
+        """ Get user information from twitter account """
         url = os.getenv('TWITTER_BASE_URL')+"users/by/username/"+username
         headers = {"Authorization":"{}".format(os.getenv('TWITTER_BEARER_TOKEN'))}
         response = requests.request("GET", url, headers=headers)
@@ -29,6 +30,7 @@ def process_user_details(username):
                     final_resp['message']='success' 
                     final_resp['id'] = user.id
                 else:
+                    """ Record the twitter user information in ourtable """
                     user = User(user_id=user_id,name=name, username=username)
                     app_session.add(user)
                     app_session.commit()

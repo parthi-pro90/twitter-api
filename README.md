@@ -23,3 +23,8 @@ Once you created the account you will get the `API key` `API Secret Key` and `Be
        SQLALCHEMY_DATABASE_URI=''
        TWITTER_BEARER_TOKEN=''
        TWITTER_BASE_URL=''```
+6. Do flask migration
+    ```migration
+       flask db init
+       flask db migrate
+       flask db upgrade```        

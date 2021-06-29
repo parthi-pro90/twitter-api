@@ -10,6 +10,7 @@ login_blueprint = Blueprint(
     template_folder='templates'
 )
 
+""" POST method, Form param (username)"""
 @login_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -25,8 +26,8 @@ def login():
     flash(error)     
     return render_template('login.html', form=form, error=error)
 
-@login_blueprint.route('/home', methods=['GET', 'POST'])
-def home():
-    detail = process_user_details('na')
-    print(detail)
-    return detail  
+# @login_blueprint.route('/home', methods=['GET', 'POST'])
+# def home():
+#     detail = process_user_details('na')
+#     print(detail)
+#     return detail  

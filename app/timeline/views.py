@@ -11,6 +11,5 @@ timeline_blueprint = Blueprint(
 
 @timeline_blueprint.route('/timeline', methods=['GET', 'POST'])
 def timeline():
-    print(request.form)
     data = get_timeline_data(request)
     return render_template('timeline.html', data=data) 
